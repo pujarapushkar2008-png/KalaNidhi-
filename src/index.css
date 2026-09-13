@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #202a3f;
+  background: #e8e0d0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+::selection {
+  background: #e5b99a;
+  color: #202a3f;
+}
+
+/* Hide scrollbars inside the phone frame for a native-app feel */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* App-style screen transitions */
+@keyframes screen-slide-forward {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes screen-slide-back {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.app-screen {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+.app-screen-forward {
+  animation-name: screen-slide-forward;
+}
+
+.app-screen-back {
+  animation-name: screen-slide-back;
+}
+
+/* Native-app tap feedback */
+button:active {
+  transition: transform 80ms ease;
+}
+
+/* Smooth scrolling for filter chips */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Voice input pulse animation */
+@keyframes voice-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(194, 107, 66, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(194, 107, 66, 0); }
+}
+
+.voice-pulse {
+  animation: voice-pulse 1.2s ease-in-out infinite;
+}
